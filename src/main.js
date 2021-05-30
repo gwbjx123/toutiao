@@ -6,10 +6,10 @@ import './styles/index.less'
 import Vant from 'vant'
 import 'vant/lib/index.css'
 import 'amfe-flexible'
-
+import tcb from './utils/tcb'
 Vue.config.productionTip = false
 Vue.use(Vant)
-
+Vue.prototype.tcb = tcb
 new Vue({
   router,
   store,
