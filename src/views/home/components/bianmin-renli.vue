@@ -6,8 +6,9 @@
             finished-text="没有更多了"
             @load="onLoad"
             >
+            <article-item :list='list' :id = 'channel.id'/>
             <!-- <van-cell v-for="(article, index) in list" :key="index" :title="article.reqJob" /> -->
-            <div ref ="obtain" class="card" v-for="(item,index) in list" :key="index+'-card'">
+            <!-- <div ref ="obtain" class="card" v-for="(item,index) in list" :key="index+'-card'">
                                <div class="cardcontent">
                                             <div class="cardtitle">
                                                <span class="bold">{{item.reqJob}}</span>
@@ -34,21 +35,25 @@
                                             </div>
 
                                             <div class="cardfoot">
-                                                <!-- <div class="time"><span>发布日期：</span>{{$moment(item.time).format('YYYY-MM-DD')}}</div> -->
-                                                <div class="tel">
+                                                <!- <div class="time"><span>发布日期：</span>{{$moment(item.time).format('YYYY-MM-DD')}}</div> -->
+                                                <!-- <div class="tel">
                                                     <span>联系方式：</span>
                                                     <span v-if="item.telphone">{{item.telphone| toTel}}</span>
                                                     <span v-else>未知</span>
                                                 </div>
-                                            </div>
-                               </div>
+                                          </div>
                             </div>
-        </van-list>
-    </div>
+                    </div>  -->
+  </van-list>
+</div>
 </template>
 <script>
 // import { getArticles } from '@/api/article'
+import ArticleItem from '@/components/article-item/article-item.vue'
 export default {
+  components: {
+    ArticleItem
+  },
   props: {
     channel: {
       type: Object,
@@ -63,13 +68,6 @@ export default {
       timestamp: null,
       perPage: 8,
       currPage: 1
-    }
-  },
-  filters: {
-
-    toTel (tel) {
-      var reg = /^(\d{3})\d{4}(\d{4})$/
-      return tel.replace(reg, '$1****$2')
     }
   },
   methods: {

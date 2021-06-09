@@ -12,5 +12,18 @@ export default {
 </script>
 
 <style lang="less">
-
+body{
+  background:#fff;
+  .card {
+    width:96%;
+    background:#fff;
+    border:1px solid rgb(216, 214, 214);
+    margin:10px auto;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .bold{
+    font-weight: bold
+  }
+}
 </style>
